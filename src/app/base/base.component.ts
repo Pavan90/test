@@ -18,6 +18,7 @@ export class BaseComponent implements OnInit {
   textCountObj: any;
   fiveCount: number = 5;
 
+  // properties for the child components. Need to create Interface.
   summaryMultiCorrect:number = 0;
   summaryMultiWrong:number = 0;
   summaryMultiQues: number = 0;
@@ -39,6 +40,7 @@ export class BaseComponent implements OnInit {
     this.baseService.getData().subscribe( (data) => {
       this.questionsData = data;
       console.log(this.questionsData);
+      //initial random object from the api. This will pass to the components and display based on types. 
       this.randomDataFive = this.questionsData.results[Math.floor(Math.random() * this.questionsData.results.length)];
       this.firstFive.push(this.randomDataFive);
       console.log("randomDataFive", this.randomDataFive);
@@ -54,6 +56,7 @@ export class BaseComponent implements OnInit {
     return this.firstFive;
   }
 
+  // method to get boolean count from boolean component 
   getCountFromBoolean(data:any){
 
     this.booleanCountObj = data;
@@ -69,6 +72,8 @@ export class BaseComponent implements OnInit {
     this.getFinalScore();
 
   }
+
+  // method to get multi count from multiple component 
   getCountFromMult(data:any){
     this.multiCountObj = data;
     console.log("this.multiCountObj", this.multiCountObj);
@@ -81,7 +86,7 @@ export class BaseComponent implements OnInit {
     this.getTotal();
     this.getFinalScore();
   }
-
+  // method to get text count from text component 
   getCountFromText(data: any){
     this.textCountObj = data;
     console.log("this.textCountObj", this.textCountObj);
@@ -97,12 +102,12 @@ export class BaseComponent implements OnInit {
     this.getFinalScore();
 
   }
-
+  // this method will return get total number. 
   getTotal(){
     console.log(this.total);
     return this.total;
   }
-
+  // this method will get the final score from all components. 
   getFinalScore(){
     this.score = {
       correct : this.summaryBoolCorrect + this.summaryMultiCorrect + this.summaryTextCorrect,
@@ -111,7 +116,8 @@ export class BaseComponent implements OnInit {
     };
     return this.score;
   }
-
+  
+  // this method will send restart data to summary component
   getRestartNotice(data: number){
     this.total = data;
     this.summaryBoolCorrect = data;

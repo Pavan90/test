@@ -13,6 +13,8 @@ export class BaseService {
 
   constructor(private http: HttpClient){}
 
+  // method to get data from api. Use this method in components to share data across.
+  
   getData(){
     return this.http.get(this.apiUrl);
   }
