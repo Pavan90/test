@@ -1,0 +1,27 @@
+<div id="base-main" class="base-main"  *ngIf="total < fiveCount ">
+  <app-boolean
+  [dataBool] = "randomDataFive"
+   [questionsDataBool]="questionsData"
+  (summaryCount)="getCountFromBoolean($event)">
+  </app-boolean>
+  <app-multiple
+  [dataMultiple] = "randomDataFive"
+  [questionsDataMult]="questionsData"
+  (summaryCount)="getCountFromMult($event)">
+
+  </app-multiple>
+ <app-text
+ [dataText]="randomDataFive"
+ [questionsDataText]="questionsData"
+ (summaryCount)="getCountFromText($event)">
+
+  </app-text>
+
+</div>
+<div id="summary"  class="base-main"   *ngIf="total === fiveCount ">
+  <app-summary (restartCount)= "getRestartNotice($event)"
+  [finalSum]="score">
+
+  </app-summary>
+</div>
+

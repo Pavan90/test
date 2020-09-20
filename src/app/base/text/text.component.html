@@ -1,0 +1,17 @@
+
+<form id="bool-container" *ngIf="data && data.type ===  'text' " [formGroup]="textGroup">
+  <div id="main">
+  <div id="bool-question">
+    <h1 [innerHTML]="data.question"></h1>
+  </div>
+  <div id="bool-options">
+      <input [type]="data.text" name="" id="text" formControlName = "textControl">
+  </div>
+  </div>
+
+  <div class="btn-container">
+    <a href="#" class="btn-primary" id="btn" [innerHTML]="'Next'" (click)="sendTextToBase()">
+
+    </a>
+  </div>
+</form>

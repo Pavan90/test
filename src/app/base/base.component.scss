@@ -1,0 +1,12 @@
+#base-main {}
+
+.base-main {
+  height: 500px;
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,20 @@
+
+<form id="bool-container" *ngIf="data && data.type ===  'boolean' " [formGroup]="boolGroup">
+  <div id="main">
+  <div id="bool-question">
+    <h1 [innerHTML]="data.question"></h1>
+  </div>
+  <div id="bool-options" *ngFor="let opt of finalOptions">
+    <label for="bool">
+      <input type="radio" name="" id="bool" [value]= "opt" formControlName = "boolControl">
+      {{opt}}
+    </label>
+  </div>
+  </div>
+
+  <div class="btn-container">
+    <a href="#" class="btn-primary" id="btn" [innerHTML]="'Next'" (click)="sendToBase()">
+
+    </a>
+  </div>
+</form>
